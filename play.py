@@ -16,6 +16,14 @@ image_startgame = climage.convert("img/start-game.jpg", is_256color=True, is_tru
 ใบไม้ = 1
 
 item = [ดาบไม้]
+random_item = [ดาบน้ํา,ดาบหิน,ดาบเพชร,ดาบเหล็ก,กิ่งไม้,ใบไม้]
+
+def random_items():
+    if Y_N == "Y" or "y":
+        add_item = random.choice(random_item)
+        item.remove(item[0])
+        item.append(add_item)
+        print (f"คุณได้รับ {str(item)}")
 
 # GUI
 print("\nDragon Hunter\n")
@@ -35,6 +43,15 @@ if input_GUI == "1" :
     print (image_startgame)
     print ("คุณได้ไปหาคนตีดาบ แต่เขาไม่มีดาบเหล็กให้เขาเลยให้\n * ดาบไม้ \nมาแทน\n")
     input ("ต่อไป >>> ")
+
+    # content 2
+    os.system('cls||clear')
+    print ("\n คุณได้ไปกล้อง 1 กล้อง คุณจะเอาหรือไม่ \n")
+    print ("เอากด Y \nไม่เอากด N \n")
+    print ("คำเตือนเลือกแล้วอาวุธอันเก่าของคุณจะหาย \n")
+    Y_N = input("จะเอาหรือไม่")
+    random_items()
+
 
 elif input_GUI == "2" :
     os.system('cls||clear')
