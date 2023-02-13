@@ -4,7 +4,16 @@ import random
 
 # add image
 image_startgame = climage.convert("img/start-game.jpg", is_256color=True, is_truecolor=False,
-                                  is_unicode=True)
+                                  is_unicode=True,width=50)
+
+image_open_box = climage.convert("img/openbox.png", is_256color=True, is_truecolor=False,
+                                  is_unicode=True,width=50)
+
+image_win = climage.convert("img/Win.jpeg", is_256color=True, is_truecolor=False,
+                                  is_unicode=True,width=50)
+
+image_lose = climage.convert("img/lose.jpeg", is_256color=True, is_truecolor=False,
+                                  is_unicode=True,width=50)
 
 # Setting Game
 ดาบไม้ = 10
@@ -18,6 +27,18 @@ image_startgame = climage.convert("img/start-game.jpg", is_256color=True, is_tru
 starter_pack = [ดาบไม้, ใบไม้, กิ่งไม้]
 item = []
 random_item = [ดาบน้ํา, ดาบหิน, ดาบเพชร, ดาบเหล็ก, กิ่งไม้, ใบไม้]
+
+# Monster
+มด = 1
+หมาป่า = 5
+ปีศาจ = 10
+แมงมุมยักษ์ = 10
+โจร = 10
+ผี = 20
+ปีศาจยักษ์ = 30
+นกรบผู้รับใช้มังกร = 50
+จระเข้ = 7
+มังกร = 100
 
 # Starter Pack
 def random_start():
@@ -38,7 +59,6 @@ def random_items():
 
     else:
         input("\nต่อไป >>> ")
-
 
 # GUI
 print("\nDragon Hunter\n")
@@ -62,12 +82,82 @@ if input_GUI == "1":
 
     # content 2
     os.system('cls||clear')
-    print("\nคุณได้ไปกล้อง 1 กล้อง คุณจะเอาหรือไม่ \n")
-    print("เอากด Y \nไม่เอากด N \n(พิมพ์ใหญ่เท่านั้น)\n")
+    print("\nคุณได้ไปเจอกล้อง 1 กล้อง คุณจะเอาหรือไม่ \n")
+    print(image_open_box)
+    print("เอากด Y (พิมพ์ใหญ่เท่านั้น) \nไม่เอากด N \n")
     print("คำเตือนเลือกแล้วอาวุธอันเก่าของคุณจะหาย และ ถ้าพิมพ์นอกจาก Y จะไม่ได้รับของในกล่องทันที \n")
     Y_N = input("จะเอาหรือไม่ >>> ")
     random_items()
 
+    # content 3
+    os.system('cls||clear')
+    print("\nคุณได้ไปไปเจอรังมด คุณจะต่อสู้กับพวกมันหรือไม่ \n")
+    print("สู้กด Y (พิมพ์ใหญ่เท่านั้น) \n\nไม่สู้กด N \n")
+    print("ถ้าพิมพ์นอกจาก Y จะข้ามการต่อสู้ทันที \n")
+    Y_N = input("จะสู้หรือไม่ >>> ")
+    if Y_N == "Y":
+        if item[0] >= มด :
+            print("\nคุณชนะ\n")
+            print(image_win)
+            input("ต่อไป >>> ")
+
+        else:
+            print(image_lose)
+            print("คุณแพ้ละ\n")
+            exit()
+    else:
+        input("\nต่อไป >>> ")
+
+    # content 4
+    os.system('cls||clear')
+    print("\nคุณกำลังจะนอนแล้วมีหมาป่าเข้ามาทำร้ายคุณ คุณจะสู้หรือไม่ \n")
+    print("สู้กด Y (พิมพ์ใหญ่เท่านั้น) \n\nไม่สู้กด N \n")
+    print("ถ้าพิมพ์นอกจาก Y จะข้ามการต่อสู้ทันที \n")
+    Y_N = input("จะสู้หรือไม่ >>> ")
+    if Y_N == "Y":
+        if item[0] >= หมาป่า :
+            print("\nคุณชนะ\n")
+            print(image_win)
+            input("ต่อไป >>> ")
+
+        else:
+            print(image_lose)
+            print("คุณแพ้ละ\n")
+            exit()
+    else:
+        print(f"\n{image_lose}")
+        print("คุณโดนหมาป่าฆ่า\n")
+        exit()
+
+    # content 5
+    os.system('cls||clear')
+    print("\nคุณตื่นมาแล้วคุณได้ไปเจอกล้อง 1 กล้อง คุณจะเอาหรือไม่ \n")
+    print(image_open_box)
+    print("เอากด Y (พิมพ์ใหญ่เท่านั้น) \nไม่เอากด N \n")
+    print("คำเตือนเลือกแล้วอาวุธอันเก่าของคุณจะหาย และ ถ้าพิมพ์นอกจาก Y จะไม่ได้รับของในกล่องทันที \n")
+    Y_N = input("จะเอาหรือไม่ >>> ")
+    random_items()
+
+    # content 6
+    os.system('cls||clear')
+    print("\nคุณโดนโจรปล้น คุณจะสู้หรือไม่\n")
+    print("สู้กด Y (พิมพ์ใหญ่เท่านั้น) \n\nไม่สู้กด N \n")
+    print("ถ้าพิมพ์นอกจาก Y จะข้ามการต่อสู้ทันที \n")
+    Y_N = input("จะสู้หรือไม่ >>> ")
+    if Y_N == "Y":
+        if item[0] >= โจร :
+            print("\nคุณชนะ\n")
+            print(image_win)
+            input("ต่อไป >>> ")
+
+        else:
+            print(image_lose)
+            print("คุณโดนโจรฆ่าตาย\n")
+            exit()
+    else:
+        print("\nคุณโดนโจรปล้น")
+        item.remove(item[0])
+        input("\nต่อไป >>> ")
 
 elif input_GUI == "2":
     os.system('cls||clear')
