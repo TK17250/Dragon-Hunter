@@ -151,7 +151,7 @@ if input_GUI == "1":
             input("ต่อไป >>> ")
 
         else:
-            print(image_lose)
+            print(f"\n{image_lose}")
             print("คุณโดนโจรฆ่าตาย\n")
             exit()
     else:
