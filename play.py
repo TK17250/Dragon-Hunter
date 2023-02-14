@@ -186,24 +186,14 @@ if input_GUI == "1":
             print("คุณแพ้ละ\n")
             exit()
     else:
-        print("\nคุณโดนผีหลอก แล้วคุณวิ่งหนีแล้วเผลอทิ้งอาวุณไป\n")
-        item.remove(item[0])
+        if list(item) not in list(item):
+            print("\nคุณวิ่งหนีผี\n")
+
+        elif item in list(item):
+            item.remove(item[0])
+            print("\nคุณโดนผีหลอก แล้วคุณวิ่งหนีแล้วเผลอทิ้งอาวุณไป\n")
+
         input("ต่อไป >>> ")
-
-    # content 9
-    os.system('cls||clear')
-    print("\nคุณโดนพวกโจรจับไปแล้วของทุกอย่างของคุณหายไป\n")
-    item.clear()
-    input("ต่อไป >>> ")
-
-    # content 10
-    print("\nคุณหนีออกจากการจับกุมได้ แล้วคุณไปเจอกล่องหายาก 1 กล่อง\n")
-    print(image_open_box)
-    add_item_lucky = random.choice(random_item_lucky)
-    item.append(add_item_lucky)
-    print("\n- ดาบไม้ = 10 \n- ดาบหิน = 20 \n- ดาบเหล็ก = 30 \n- ดาบเพชร = 40 \n- ดาบน้ำ = 50 \n- กิ่งไม้ = 5 \n- ใบไม้ = 1")
-    print(f"\n* คุณได้รับ {str(item)}")
-    input("\nต่อไป >>> ")
 
 elif input_GUI == "2":
     os.system('cls||clear')
