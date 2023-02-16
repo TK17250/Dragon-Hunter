@@ -15,6 +15,15 @@ image_win = climage.convert("img/Win.jpeg", is_256color=True, is_truecolor=False
 image_lose = climage.convert("img/lose.jpeg", is_256color=True, is_truecolor=False,
                                   is_unicode=True,width=50)
 
+image_bandit = climage.convert("img/bandit.jpeg", is_256color=True, is_truecolor=False,
+                                  is_unicode=True,width=50)
+
+image_ghost = climage.convert("img/ghost.png", is_256color=True, is_truecolor=False,
+                                  is_unicode=True,width=50)
+
+image_ant = climage.convert("img/ant.jpeg", is_256color=True, is_truecolor=False,
+                                  is_unicode=True,width=50)
+
 # Setting Game
 ดาบไม้ = 10
 ดาบหิน = 20
@@ -52,8 +61,21 @@ def random_start():
 def random_items():
     if Y_N == "Y":
         add_item = random.choice(random_item)
-        item.remove(item[0])
+        item.clear()
         item.append(add_item)
+        print("\n- ดาบไม้ = 10 \n- ดาบหิน = 20 \n- ดาบเหล็ก = 30 \n- ดาบเพชร = 40 \n- ดาบน้ำ = 50 \n- กิ่งไม้ = 5 \n- ใบไม้ = 1")
+        print(f"\n* คุณได้รับ {str(item)}")
+        input("\nต่อไป >>> ")
+
+    else:
+        input("\nต่อไป >>> ")
+
+# Random box lucky
+def random_lucky():
+    if Y_N == "Y":
+        add_lucky = random.choice(random_item_lucky)
+        item.clear()
+        item.append(add_lucky)
         print("\n- ดาบไม้ = 10 \n- ดาบหิน = 20 \n- ดาบเหล็ก = 30 \n- ดาบเพชร = 40 \n- ดาบน้ำ = 50 \n- กิ่งไม้ = 5 \n- ใบไม้ = 1")
         print(f"\n* คุณได้รับ {str(item)}")
         input("\nต่อไป >>> ")
@@ -93,6 +115,7 @@ if input_GUI == "1":
     # content 3
     os.system('cls||clear')
     print("\nคุณได้ไปไปเจอรังมด คุณจะต่อสู้กับพวกมันหรือไม่ \n")
+    print(image_ant)
     print("สู้กด Y (พิมพ์ใหญ่เท่านั้น) \n\nไม่สู้กด N \n")
     print("ถ้าพิมพ์นอกจาก Y จะข้ามการต่อสู้ทันที \n")
     Y_N = input("จะสู้หรือไม่ >>> ")
@@ -142,6 +165,7 @@ if input_GUI == "1":
     # content 6
     os.system('cls||clear')
     print("\nคุณโดนโจรปล้น คุณจะสู้หรือไม่\n")
+    print(image_bandit)
     print("สู้กด Y (พิมพ์ใหญ่เท่านั้น) \n\nไม่สู้กด N \n")
     print("ถ้าพิมพ์นอกจาก Y จะข้ามการต่อสู้ทันที \n")
     Y_N = input("จะสู้หรือไม่ >>> ")
@@ -157,7 +181,7 @@ if input_GUI == "1":
             exit()
     else:
         print("\nคุณโดนโจรปล้น")
-        item.remove(item[0])
+        item.clear
         input("\nต่อไป >>> ")
 
     # content 7
@@ -172,6 +196,7 @@ if input_GUI == "1":
     # content 8
     os.system('cls||clear')
     print("\nตอนนี้ในป่าเป็นตอนกลางคืน แล้วคุณได้ไปเจอผีในป่าที่กำลังจะมาหลอกคุณ คุณจะสู้หรือไม่\n")
+    print(image_ghost)
     print("สู้กด Y (พิมพ์ใหญ่เท่านั้น) \n\nไม่สู้กด N \n")
     print("ถ้าพิมพ์นอกจาก Y จะข้ามการต่อสู้ทันที \n")
     Y_N = input("จะสู้หรือไม่ >>> ")
@@ -186,14 +211,40 @@ if input_GUI == "1":
             print("คุณแพ้ละ\n")
             exit()
     else:
-        if list(item) not in list(item):
-            print("\nคุณวิ่งหนีผี\n")
-
-        elif item in list(item):
-            item.remove(item[0])
-            print("\nคุณโดนผีหลอก แล้วคุณวิ่งหนีแล้วเผลอทิ้งอาวุณไป\n")
-
+        print("\nคุณโดนผีหลอก แล้วคุณวิ่งหนีโดยทิ้งอาวุธไป\n")
+        item.clear()
         input("ต่อไป >>> ")
+
+    # content 9
+    os.system('cls||clear')
+    print("\nคุณตื่นมาแล้วได้มาเจอ กล่องวิเศษอันหนึ่ง คุณจะเปิดหรือไม่\n")
+    print(image_open_box)
+    print("เอากด Y (พิมพ์ใหญ่เท่านั้น) \nไม่เอากด N \n")
+    print("คำเตือนเลือกแล้วอาวุธอันเก่าของคุณจะหาย และ ถ้าพิมพ์นอกจาก Y จะไม่ได้รับของในกล่องทันที \n")
+    Y_N = input("จะเอาหรือไม่ >>> ")
+    random_lucky()
+
+    # content 10
+    os.system('cls||clear')
+    print("คุณเดินมาเจอ จระเข้ยักษ์ติดปีกถือปืนมี33 เศียร แต่ละเศียรมีงา 7 งาแต่ละงามีสระบัว 7 สระ แต่ละสระมีดอกบัว 7 ดอก แต่ละดอกมีกลีบ 7 กลีบ มี 7 เกสร แต่ละเกสรมีปราสาทอยู่ 7 หลัง ปราสาทแต่ละหลังมี 7 ชั้น แต่ละชั้นมี 7 ห้อง แต่ละห้องมี 7 บัลลังก์ แต่ละบัลลังก์มีเทพธิดาสถิต 7 องค์ เทพธิดาแต่ละองค์มีบริวาร องค์ละ 7 นาง เทพธิดาบริวารแต่ ละนางมีนางทาสีนางละทาสี \n")
+    print("แล้วมันก็วิ่งจะมาทำร้ายคุณ คุณจะสู้หรือไม่\n")
+    print("สู้กด Y (พิมพ์ใหญ่เท่านั้น) \n\nไม่สู้กด N \n")
+    print("ถ้าพิมพ์นอกจาก Y จะข้ามการต่อสู้ทันที \n")
+    Y_N = input("จะสู้หรือไม่ >>> ")
+    if Y_N == "Y":
+        if item[0] >= ผี :
+            print("\nคุณชนะ\n")
+            print(image_win)
+            input("ต่อไป >>> ")
+
+        else:
+            print(image_lose)
+            print("คุณแพ้ละ\n")
+            exit()
+    else:
+        print("\nคุณโดนจระเข้จับกิน\n")
+        print(image_lose)
+        exit()
 
 elif input_GUI == "2":
     os.system('cls||clear')
