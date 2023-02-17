@@ -39,6 +39,12 @@ image_spider = climage.convert("img/spider.jpeg", is_256color=True, is_truecolor
 image_crock = climage.convert("img/crock.jpeg", is_256color=True, is_truecolor=False,
                                   is_unicode=True,width=50)
 
+image_bird = climage.convert("img/bird.png", is_256color=True, is_truecolor=False,
+                                  is_unicode=True,width=50)
+
+image_Dragon = climage.convert("img/dragon.jpeg", is_256color=True, is_truecolor=False,
+                                  is_unicode=True,width=50)
+
 # Setting Game
 ดาบไม้ = 10
 ดาบหิน = 20
@@ -342,6 +348,7 @@ if input_GUI == "1":
     # content 15
     os.system('cls||clear')
     print("\nคุณได้เดินมาถึงหน้าประตูอันหนึ่งข้างในนั้นมีมังกรอาศัยอยู่ แต่ มีนกรบผู้รับใช้มังกรตัวหนึ่ง จะมาฆ่าคุณเพราะคุณได้ไปฆ่าปีศาจที่เป็นเพื่อนของเขา แล้วคุณจะสู้หรือไม่\n")
+    print(image_bird)
     print("สู้กด Y (พิมพ์ใหญ่เท่านั้น) \n\nไม่สู้กด N \n")
     print("ถ้าพิมพ์นอกจาก Y คุณจะตายทันที เพราะคุณโดนนกรบผู้รับใช้มังกรฆ่าตาย \n")
     Y_N = input("จะสู้หรือไม่ >>> ")
@@ -371,6 +378,7 @@ if input_GUI == "1":
     # content 17
     os.system('cls||clear')
     print("\nคุณได้เข้าไปในประตูที่มังกรอยู่แล้วมันกรตัวนั้นเป็นตัวเดียวกันกับตัวที่ฆ่าพ่อแม่คุณ")
+    print(image_Dragon)
     print("\n- ดาบไม้ = 10 \n- ดาบหิน = 20 \n- ดาบเหล็ก = 30 \n- ดาบเพชร = 40 \n- ดาบน้ำ = 50 \n- กิ่งไม้ = 5 \n- ใบไม้ = 1")
     print("\nการต่อสู้โอกาสสุ่มชนะจะแล้วแต่ดาบ เช่น \n- ดาบไม้ = 10 จะสุ่มได้ 1 รอบ \nแต่ \n\nไอเท็มที่เป็นหลักหน่วยจะเป็น % โอกาศชนะเช่น \nกิ่งไม้ = 5 จะมีโอกาส 5% ที่จะชนะ\n")
     input("กด Enter เพื่อเริ่มการต่อสู้ >>> ")
@@ -475,7 +483,7 @@ if input_GUI == "1":
 elif input_GUI == "2":
     os.system('cls||clear')
     print("ผู้จัดทำ")
-    print("1.TK17250 \n2.sdkljfdlskjfdlskjfdsklfjdslfjds")
+    print("1.TK17250 \n2.0hmmbga")
 
 else:
     print("Error")
